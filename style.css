@@ -1,0 +1,87 @@
+﻿body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav {
+}
+
+    nav ul {
+        padding: 0;
+
+    }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+            padding-right: 2rem;
+        }
+
+            nav ul li:last-child {
+                float: right;
+                border: 1px solid #dfdfdf;
+                padding: 10px;
+                background-color: bisque;
+                font-weight: bold;
+                position:relative;
+            }
+
+ul.product {
+    width: 100%;
+    padding: 0;
+
+}
+
+    ul.product li {
+        list-style: none;
+        display: inline-block;
+        width: 30%;
+        border: 1px solid #dfdfdf;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        padding: 10px;
+        vertical-align: top;
+        position: relative;
+    }
+
+.product .product-image {
+    margin: 4px 3% 8px 0;
+    width: 33%;
+    height: auto;
+    min-height: 70px;
+}
+
+.description {
+    display: inline-block;
+}
+
+.price-pizza {
+    font-weight: bold;
+}
+
+.item-cart {
+}
+
+.removeCart {
+}
+
+    .removeCart::before {
+        content: 'x remove cart';
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+.itemrd {
+    display: none;
+}
+.order-summary {
+    position: absolute;
+    right: -2px;
+    top: 40px;
+    z-index: 1;
+    width: 200px;
+    display:none;
+}
+#cart_count { cursor:pointer; }
+.order-summary ul { background-color:bisque; padding:10px; display:inline-block; }
+.order-summary ul li { font-size:12px; font-size: 12px; padding: 0 !important; margin: 0; width: 100%; margin-bottom:1rem; }

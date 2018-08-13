@@ -1,0 +1,51 @@
+﻿[
+  {
+    "pizza_location": "/img/pizza.jpg",
+    "pizza_dis": "Brazilian Pizza",
+    "pizza_name": "green peas, carrots, beets, and potato sticks, and dessert toppings",
+    "pizza_cost": "300",
+    "pizza_id": "0"
+  },
+  {
+    "pizza_location": "img/pizza1.jpg",
+    "pizza_dis": "Pepperoni",
+    "pizza_name": "Pepperoni, sausage, a six-cheese blend and Italian seasoning.",
+    "pizza_cost": "320",
+    "pizza_id": "1"
+  },
+  {
+    "pizza_location": "img/pizza2.jpg",
+    "pizza_dis": "Banana Curry Pizza",
+    "pizza_name": "Pepperoni, sausage, a six-cheese blend and Italian seasoning.",
+    "pizza_cost": "250",
+    "pizza_id": "2"
+  },
+  {
+    "pizza_location": "img/pizza3.jpg",
+    "pizza_dis": "Bronx Pastrami Pie",
+    "pizza_name": "We wall rasa with chiken slice",
+    "pizza_cost": "310",
+    "pizza_id": "3"
+  },
+  {
+    "pizza_location": "img/pizza4.jpg",
+    "pizza_dis": "#f00",
+    "pizza_name": "red",
+    "pizza_cost": "300",
+    "pizza_id": "4"
+  },
+  {
+    "pizza_location": "img/pizza5.jpg",
+    "pizza_dis": "#f00",
+    "pizza_name": "red",
+    "pizza_cost": "300",
+    "pizza_id": "5"
+  },
+  {
+    "pizza_location": "img/pizza3.jpg",
+    "pizza_dis": "#f00",
+    "pizza_name": "red",
+    "pizza_cost": "300",
+    "pizza_id": "6"
+  }
+]

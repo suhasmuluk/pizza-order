@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizza Order</title>
+    <meta charset="utf-8" />
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+
+    </script>
+    <script>
+
+
+    </script>
+    <script>
+        window.onload = function () {
+            getdata();
+            Myarray = JSON.parse(localStorage.getItem("test"));
+        };
+
+        var slection = [];
+      
+        var citem = "";
+        function cartadd(seq, pizzaDis, pizzaName) {
+
+
+            var pizzaDis = pizzaDis;
+
+            slection.push([seq, pizzaDis, pizzaName]);
+           
+            //localStorage.setItem("test", JSON.stringify(slection));
+            var arrayitem = "";
+            
+            for (var i = 0; i < slection.length; i++) {
+                if (slection[i] != null) {
+                    arrayitem += '<li>' + slection[i] + '</li>';
+                }
+               
+            }
+           
+            
+            
+            document.getElementById('os').innerHTML = arrayitem;
+           
+
+            var count = Number($('#cart_count').val());
+            count = count + 1;
+            $('#cart_count').val(count);
+
+            document.getElementById('cart_count').innerHTML = count;
+
+            document.getElementById('item-cart' + seq);
+
+            $('#item-cart' + seq).css("display", "none");
+            $('#item-rcart' + seq).css("display", "block");
+           
+            slection.join(" + ");
+        }
+
+
+        function cartremove(seq, pizzaDis, pizzaName) {
+           
+            var indexA = -1;
+            for (var i in slection) {
+                var indexA = slection[i].indexOf(seq);
+                if (indexA >= 0)
+                    break;
+                console.log("index of cliecked item is " + indexA);
+            }
+          
+            delete slection[i];
+            
+            document.getElementById('os').innerHTML =  "<li>"+ slection + "</li>";
+
+            var count = Number($('#cart_count').val());
+
+            count = count - 1;
+
+            $('#cart_count').val(count);
+            document.getElementById('cart_count').innerHTML = count;
+
+            document.getElementById('item-rcart' + seq);
+
+            $('#item-cart' + seq).css("display", "block");
+            $('#item-rcart' + seq).css("display", "none");
+
+        }
+        function getdata() {
+
+            var delayInMilliseconds = 10; //1 second
+
+            setTimeout(function () {
+                var xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var javaobj = JSON.parse(xhttp.response);
+                        var item = "";
+                        for (var i = 0; i < javaobj.length; i++) {
+                            item += "<li id=\"item-data" + i + "\"> <img class='product-image' src=" + javaobj[i].pizza_location + "></img> <div class=\"description\">" +
+                                    "<h3>" + javaobj[i].pizza_dis + "</h3>" +
+                                    "<p class=\"description-short\">" +
+                                    javaobj[i].pizza_name + "</p>" + "<p class=\"price-pizza\">" + javaobj[i].pizza_cost + "</p> <a onclick='cartadd(" + javaobj[i].pizza_id + ", \"" + javaobj[i].pizza_dis + "\",\"" + javaobj[i].pizza_name + "\")' class='itemdd' href='javascript:void(0)' id=\"item-cart" + javaobj[i].pizza_id + "\"> Add to Cart</a> <a class='itemrd' onclick='cartremove(" + javaobj[i].pizza_id + ", \"" + javaobj[i].pizza_dis + "\",\"" + javaobj[i].pizza_name + "\")' href='javascript:void(0)' id=\"item-rcart" + javaobj[i].pizza_id + "\"> Remove Cart </a> </div></li>";
+                            //  "<p class=\"price-pizza\">" + javaobj[i].pizza_cost + "</p> <a onclick='cartadd(" + i , 'abs'+") class='itemdd' href='javascript:void(0)' id=\"item-cart" + i + "\"> Add to Cart</a> <a class='itemrd' onclick='cartremove(" + i + ")' href='javascript:void(0)' id=\"item-rcart" + i + "\"> Remove Cart </a> </div></li>";
+                        }
+
+                        document.getElementById('product_data').innerHTML = item;
+                    }
+                }
+                xhttp.open("GET", "pizza.json", true);
+                xhttp.send();
+            }, delayInMilliseconds);
+        }
+
+        function cart_summary() {
+            $('.order-summary').slideToggle();
+        }
+
+        function data_cart() {
+
+        }
+
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <h1>Logo comes here</h1>
+            </li>
+            <li>
+                <div id="cart_count" onclick="cart_summary()" value="0">  </div>
+                <div class="order-summary">
+                    <ul id="os"></ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div id="Result"></div>
+    <section>
+        <ul id="product_data" class="product"></ul>
+    </section>
+</body>
+
+</html>
